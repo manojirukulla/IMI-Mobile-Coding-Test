@@ -1,0 +1,36 @@
+<form [formGroup] = "heroForm" >
+<label> FirstName </label>
+<input type ="text" formControlName = "firstName"> 
+<label> LastName </label>
+<input type ="text" formControlName ="lastName">
+</form>
+<label> Kids </label>
+<input type ="checkbox" [(ngModel)] = "kids"  >
+
+
+
+<div *ngIf="heroForm.get('firstName').touched">
+<div *ngIf="heroForm.get('firstName').hasError('required')">
+  First Name is required.
+</div>
+<div *ngIf="heroForm.get('firstName').hasError('minlength')">
+  First Name must be at least 2 characters long.
+</div>
+<div *ngIf="heroForm.get('firstName').hasError('forbiddenName')">
+  First Name cannot contain special characters.
+</div>
+</div>
+
+<div *ngIf="heroForm.get('lastName').touched">
+<div *ngIf="heroForm.get('lastName').hasError('required')">
+ LastName Name is required.
+</div>
+<div *ngIf="heroForm.get('lastName').hasError('minlength')">
+ LastName must be at least 2 characters long.
+</div>
+<div *ngIf="heroForm.get('lastName').hasError('forbiddenName'['value'])==this.person.firstName && heroForm.get('lastName').hasError('forbiddenName')">
+ Last Name cannot contain special characters.
+</div>
+</div>
+
+<button (click) = "log()" >Submit</button>
